@@ -5,6 +5,9 @@ let boxes = Array.from(document.getElementsByClassName("box"));
 let winnerIndicator = getComputedStyle(document.body).getPropertyValue(
   "--winning-blocks"
 );
+let resetIndicator = getComputedStyle(document.body).getPropertyValue(
+  "--orange"
+);
 
 console.log(boxes);
 
@@ -76,10 +79,13 @@ function restart() {
   boxes.forEach((box) => {
     box.innerText = "";
     box.style.backgroundColor = "";
+    box.style.color = resetIndicator;
   });
 
   currentPlayer = X_TEXT;
   playerText.innerText = "Tic Tac Toe";
+  playerText.style.color = resetIndicator;
+  count_plays = 0;
 }
 
 startGame();
